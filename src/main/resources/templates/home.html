@@ -3,6 +3,28 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<style>
+	#out2 {
+		display: grid;
+		grid-template-columns: repeat(6, 1fr);
+	}
+
+	.fid {
+		background-color: red;
+	}
+	
+	.fname {
+		background-color: orange; 
+	}
+	
+	.price {
+		background-color: gold; 
+	}
+	
+	.location_id {
+		background-color: green; 
+	}
+</style>
 </head>
 <body>
 	<h3>홈</h3>
@@ -14,6 +36,10 @@
 	<button id="btn2">xhttp 요청에 파라미터 함께 보내기</button>
 	
 	<button id="btn3">xhttp 요청에 JSON 형식으로 파라미터 실어 보내기</button>
+	
+	<button id="btn4">xhttp 요청으로 데이터 가져와 반영해보기</button>
+	
+	<div id="out2"></div>
 	
 	<script src="/assets/js/home.js"></script>
 </body>

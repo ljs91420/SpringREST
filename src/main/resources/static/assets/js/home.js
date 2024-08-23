@@ -3,6 +3,8 @@ const out = document.getElementById("out");
 
 const btn2 = document.getElementById("btn2");
 const btn3 = document.getElementById("btn3");
+const btn4 = document.getElementById("btn4");
+const out2 = document.getElementById("out2");
 
 btn.addEventListener("click", (e) => {
 	const xhttp = new XMLHttpRequest();
@@ -74,4 +76,29 @@ btn3.addEventListener("click", (e) => {
 	
 	console.log("JSON으로 변환된 new Fruit: ", jsonFruit);
 	xhttp.send(jsonFruit);
+});
+
+btn4.addEventListener("click", (e) => {
+	
+	const xhttp = new XMLHttpRequest();
+		
+	xhttp.addEventListener("load", (e) => {
+		if (xhttp.status == 200) {
+			// JSON.parse(문자열) : 해당 문자열을 자바스크립트 오브젝트로 변환한다.
+			const fruit = JSON.parse(xhttp.responseText);
+			
+			for (key in fruit) {
+				console.log("key:", key);
+				const newDiv = document.createElement("div");
+				
+				newDiv.classList.add(key);
+				newDiv.innerText = fruit[key];
+				
+				out2.appendChild(newDiv);
+			}
+		}
+	});
+	
+	xhttp.open("GET", "/entity/test5?ID=110");
+	xhttp.send();
 });
